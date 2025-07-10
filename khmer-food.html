@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khmer Delights - Authentic Cambodian Cuisine</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5e9da;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .navbar {
+            background: #8d5524;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+            text-decoration: none;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #f9c784;
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80') center/cover no-repeat;
+            color: #fff;
+            text-align: center;
+            padding: 5rem 2rem 3rem 2rem;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(141, 85, 36, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .menu-section {
+            padding: 4rem 2rem;
+            background: #fff7ef;
+        }
+        .section-title {
+            text-align: center;
+            color: #8d5524;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .menu-card {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 24px rgba(141, 85, 36, 0.08);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(141, 85, 36, 0.15);
+        }
+        .menu-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .menu-info {
+            padding: 1.2rem 1rem 1rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .menu-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #8d5524;
+            margin-bottom: 0.5rem;
+        }
+        .menu-desc {
+            color: #6d4c1b;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+        .menu-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #c97b3b;
+        }
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.7rem; }
+            .menu-section { padding: 2rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">Khmer Delights</a>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Khmer Delights</h1>
+            <p>Experience the authentic flavors of Cambodia. Enjoy our handpicked selection of traditional Khmer dishes, made with love and the freshest ingredients.</p>
+        </div>
+    </section>
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=600&q=80" alt="Fish Amok">
+                <div class="menu-info">
+                    <div class="menu-title">Fish Amok</div>
+                    <div class="menu-desc">Steamed fish curry with coconut milk, lemongrass, and kaffir lime, served in a banana leaf cup.</div>
+                    <div class="menu-price">$7.50</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=600&q=80" alt="Beef Lok Lak">
+                <div class="menu-info">
+                    <div class="menu-title">Beef Lok Lak</div>
+                    <div class="menu-desc">Stir-fried marinated beef cubes with black pepper sauce, served with rice and a fried egg.</div>
+                    <div class="menu-price">$8.00</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Nom Banh Chok">
+                <div class="menu-info">
+                    <div class="menu-title">Nom Banh Chok</div>
+                    <div class="menu-desc">Khmer rice noodle soup with green fish gravy, fresh herbs, and crisp vegetables.</div>
+                    <div class="menu-price">$6.00</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=600&q=80" alt="Bai Sach Chrouk">
+                <div class="menu-info">
+                    <div class="menu-title">Bai Sach Chrouk</div>
+                    <div class="menu-desc">Grilled pork with broken rice, pickled vegetables, and a side of clear soup.</div>
+                    <div class="menu-price">$5.50</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Samlor Korkor">
+                <div class="menu-info">
+                    <div class="menu-title">Samlor Korkor</div>
+                    <div class="menu-desc">Traditional Khmer vegetable soup with catfish, green papaya, eggplant, and moringa leaves.</div>
+                    <div class="menu-price">$7.00</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=600&q=80" alt="Prahok Ktis">
+                <div class="menu-info">
+                    <div class="menu-title">Prahok Ktis</div>
+                    <div class="menu-desc">Minced pork and prahok (fermented fish) dip cooked in coconut milk, served with fresh vegetables.</div>
+                    <div class="menu-price">$6.50</div>
+                </div>
+            </div>
+            <!-- New Khmer food items below -->
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Kuy Teav">
+                <div class="menu-info">
+                    <div class="menu-title">Kuy Teav</div>
+                    <div class="menu-desc">A fragrant noodle soup with pork or beef, bean sprouts, herbs, and lime.</div>
+                    <div class="menu-price">$6.50</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=600&q=80" alt="Cha Kroeung">
+                <div class="menu-info">
+                    <div class="menu-title">Cha Kroeung</div>
+                    <div class="menu-desc">Stir-fried chicken with lemongrass, galangal, turmeric, and fresh vegetables.</div>
+                    <div class="menu-price">$7.25</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Ang Dtray-Meuk">
+                <div class="menu-info">
+                    <div class="menu-title">Ang Dtray-Meuk</div>
+                    <div class="menu-desc">Grilled squid skewers marinated in lime juice, garlic, and Kampot pepper.</div>
+                    <div class="menu-price">$8.50</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=600&q=80" alt="Num Pang">
+                <div class="menu-info">
+                    <div class="menu-title">Num Pang</div>
+                    <div class="menu-desc">Khmer-style baguette sandwich with pork, pickled vegetables, and herbs.</div>
+                    <div class="menu-price">$5.00</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=600&q=80" alt="Nom Ansom Chek">
+                <div class="menu-info">
+                    <div class="menu-title">Nom Ansom Chek</div>
+                    <div class="menu-desc">Banana sticky rice cake wrapped in banana leaves, a popular Khmer dessert.</div>
+                    <div class="menu-price">$3.50</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Cha Traop Dot">
+                <div class="menu-info">
+                    <div class="menu-title">Cha Traop Dot</div>
+                    <div class="menu-desc">Grilled eggplant salad with minced pork, garlic, and herbs.</div>
+                    <div class="menu-price">$6.25</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?w=600&q=80" alt="Khmer Red Curry">
+                <div class="menu-info">
+                    <div class="menu-title">Khmer Red Curry</div>
+                    <div class="menu-desc">Mild coconut curry with beef, chicken, or fish, eggplant, green beans, and sweet potatoes.</div>
+                    <div class="menu-price">$7.75</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?w=600&q=80" alt="Nom Plae Ai">
+                <div class="menu-info">
+                    <div class="menu-title">Nom Plae Ai</div>
+                    <div class="menu-desc">Sticky rice balls filled with palm sugar and coated in grated coconut.</div>
+                    <div class="menu-price">$3.25</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=600&q=80" alt="Lap Khmer">
+                <div class="menu-info">
+                    <div class="menu-title">Lap Khmer</div>
+                    <div class="menu-desc">Khmer beef salad with lime juice, lemongrass, shallots, and fresh herbs.</div>
+                    <div class="menu-price">$7.00</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img class="menu-img" src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?w=600&q=80" alt="Twa Ko">
+                <div class="menu-info">
+                    <div class="menu-title">Twa Ko</div>
+                    <div class="menu-desc">Khmer-style grilled sausage made with beef or pork, garlic, and spices.</div>
+                    <div class="menu-price">$5.75</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="menu-section" id="contact" style="background:#f5e9da;">
+        <h2 class="section-title">Contact Us</h2>
+        <div style="text-align:center; color:#8d5524; font-size:1.1rem;">
+            <p>Address: 123 Phnom Penh Street, Cambodia</p>
+            <p>Phone: +855 12 345 678</p>
+            <p>Email: info@khmerdelights.com</p>
+        </div>
+    </section>
+</body>
+</html> 

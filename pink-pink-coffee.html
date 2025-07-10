@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foll Imasge - Pink Pink Coffee</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #8B4513;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="70" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="80" r="1.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="70" cy="10" r="1.5" fill="%23ffffff" opacity="0.1"/></svg>');
+            background-size: 100% 100%, 100% 100%, 100% 100%, 50px 50px;
+            background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="8" ry="4" fill="%23321010" opacity="0.15"/><ellipse cx="15" cy="15" rx="6" ry="3" fill="%234A2C2A" opacity="0.15"/><ellipse cx="45" cy="45" rx="7" ry="3.5" fill="%235D3A35" opacity="0.15"/><ellipse cx="25" cy="50" rx="5" ry="2.5" fill="%236B4423" opacity="0.15"/><ellipse cx="50" cy="20" rx="6" ry="3" fill="%238B4513" opacity="0.15"/></svg>');
+            background-size: 120px 120px;
+            background-repeat: repeat;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #8B4513;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #CD853F;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            color: #8B4513;
+            background: rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .main-content {
+            margin-top: 100px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .menu-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .menu-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b9d, #c44569);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .food-image:hover {
+            transform: scale(1.05);
+        }
+
+        .food-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .food-image span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .food-image::after {
+            content: '🔍';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .food-image:hover::after {
+            opacity: 1;
+        }
+
+        .espresso-bg {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop');
+        }
+
+        .pink-latte-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .cappuccino-bg {
+            background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c241?w=400&h=300&fit=crop');
+        }
+
+        .mocha-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .americano-bg {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop');
+        }
+
+        .macchiato-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .flat-white-bg {
+            background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c241?w=400&h=300&fit=crop');
+        }
+
+        .cold-brew-bg {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop');
+        }
+
+        .frappuccino-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .caramel-macchiato-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .vanilla-latte-bg {
+            background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c241?w=400&h=300&fit=crop');
+        }
+
+        .irish-coffee-bg {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop');
+        }
+
+        .affogato-bg {
+            background-image: url('https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400&h=300&fit=crop');
+        }
+
+        .tea-bg {
+            background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop');
+        }
+
+        .smoothie-bg {
+            background-image: url('https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=400&h=300&fit=crop');
+        }
+
+        .waffle-bg {
+            background-image: url('https://images.unsplash.com/photo-1562376552-8d92d75c7c13?w=400&h=300&fit=crop');
+        }
+
+        .french-toast-bg {
+            background-image: url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop');
+        }
+
+        .omelette-bg {
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop');
+        }
+
+        .yogurt-bg {
+            background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop');
+        }
+
+        .granola-bg {
+            background-image: url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=400&h=300&fit=crop');
+        }
+
+        .sandwich-bg {
+            background-image: url('https://images.unsplash.com/photo-1528735602786-469f601304d4?w=400&h=300&fit=crop');
+        }
+
+        .salad-bg {
+            background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop');
+        }
+
+        .pasta-bg {
+            background-image: url('https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?w=400&h=300&fit=crop');
+        }
+
+        .burger-bg {
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop');
+        }
+
+        .soup-bg {
+            background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&h=300&fit=crop');
+        }
+
+        .waffle-bg {
+            background-image: url('https://images.unsplash.com/photo-1562376552-8d92d75c7c13?w=400&h=300&fit=crop');
+        }
+
+        .french-toast-bg {
+            background-image: url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=400&h=300&fit=crop');
+        }
+
+        .omelette-bg {
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop');
+        }
+
+        .yogurt-bg {
+            background-image: url('https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop');
+        }
+
+        .granola-bg {
+            background-image: url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=400&h=300&fit=crop');
+        }
+
+        .brownie-bg {
+            background-image: url('https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400&h=300&fit=crop');
+        }
+
+        .cheesecake-bg {
+            background-image: url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=400&h=300&fit=crop');
+        }
+
+        .tiramisu-bg {
+            background-image: url('https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400&h=300&fit=crop');
+        }
+
+        .muffin-bg {
+            background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop');
+        }
+
+        .donut-bg {
+            background-image: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=300&fit=crop');
+        }
+
+        .chips-bg {
+            background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop');
+        }
+
+        .nuts-bg {
+            background-image: url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=400&h=300&fit=crop');
+        }
+
+        .food-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .food-description {
+            color: #666;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .food-price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #8B4513;
+            margin-bottom: 1rem;
+        }
+
+        .order-btn {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .section-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 2rem 0;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .menu-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: #8B4513;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-link {
+                padding: 1rem 2rem;
+                width: 100%;
+                display: block;
+            }
+
+            .main-content h1 {
+                font-size: 2rem;
+            }
+
+            .main-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .menu-category {
+                margin-bottom: 2rem;
+            }
+
+            .category-title {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            .menu-section, .about-section, .contact-section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">☕ Pink Pink Coffee</a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content" id="home">
+        <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=800&h=400&fit=crop" alt="Foll Imasge Coffee" style="width: 100%; max-width: 800px; height: auto; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+        <h1>Welcome to Foll Imasge - Pink Pink Coffee</h1>
+        <p>Experience the perfect blend of comfort and flavor. From artisanal coffee to delicious food, we create moments of joy in every cup and bite.</p>
+    </div>
+
+    <section class="menu-section" id="menu">
+        <h2 class="section-title">Our Menu</h2>
+        
+        <!-- Coffee Drinks Section -->
+        <div class="menu-category">
+            <h3 class="category-title">☕ Coffee Drinks</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image espresso-bg"></div>
+                    <h3 class="food-title">Classic Espresso</h3>
+                    <p class="food-description">Rich and bold single shot espresso, perfect for coffee purists</p>
+                    <p class="food-price">$3.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image pink-latte-bg"></div>
+                    <h3 class="food-title">Pink Latte</h3>
+                    <p class="food-description">Our signature drink with steamed milk and pink food coloring</p>
+                    <p class="food-price">$5.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image cappuccino-bg"></div>
+                    <h3 class="food-title">Honey Cinnamon Cappuccino</h3>
+                    <p class="food-description">Sweet and spicy with honey and cinnamon foam</p>
+                    <p class="food-price">$6.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image mocha-bg"></div>
+                    <h3 class="food-title">Mocha Delight</h3>
+                    <p class="food-description">Rich chocolate and espresso with whipped cream</p>
+                    <p class="food-price">$7.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image americano-bg"></div>
+                    <h3 class="food-title">Americano</h3>
+                    <p class="food-description">Espresso with hot water, a classic Italian coffee drink</p>
+                    <p class="food-price">$4.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image macchiato-bg"></div>
+                    <h3 class="food-title">Caramel Macchiato</h3>
+                    <p class="food-description">Espresso with steamed milk, caramel, and whipped cream</p>
+                    <p class="food-price">$6.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image flat-white-bg"></div>
+                    <h3 class="food-title">Flat White</h3>
+                    <p class="food-description">Espresso with steamed milk, a smooth and creamy coffee</p>
+                    <p class="food-price">$5.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image cold-brew-bg"></div>
+                    <h3 class="food-title">Cold Brew</h3>
+                    <p class="food-description">Smooth and robust cold brew coffee, perfect for a refreshing drink</p>
+                    <p class="food-price">$5.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image frappuccino-bg"></div>
+                    <h3 class="food-title">Pink Frappuccino</h3>
+                    <p class="food-description">Creamy, sweet, and refreshing pink drink with vanilla</p>
+                    <p class="food-price">$7.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image caramel-macchiato-bg"></div>
+                    <h3 class="food-title">Caramel Frappuccino</h3>
+                    <p class="food-description">Creamy, sweet, and rich caramel drink with whipped cream</p>
+                    <p class="food-price">$8.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image vanilla-latte-bg"></div>
+                    <h3 class="food-title">Vanilla Latte</h3>
+                    <p class="food-description">Creamy vanilla latte with steamed milk and a hint of cinnamon</p>
+                    <p class="food-price">$6.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image irish-coffee-bg"></div>
+                    <h3 class="food-title">Irish Coffee</h3>
+                    <p class="food-description">Espresso with Irish whiskey, a classic Irish coffee drink</p>
+                    <p class="food-price">$7.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image affogato-bg"></div>
+                    <h3 class="food-title">Affogato</h3>
+                    <p class="food-description">Espresso poured over vanilla ice cream, a decadent dessert</p>
+                    <p class="food-price">$8.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tea & Other Drinks Section -->
+        <div class="menu-category">
+            <h3 class="category-title">🫖 Tea & Other Drinks</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image tea-bg"></div>
+                    <h3 class="food-title">Pink Rose Tea</h3>
+                    <p class="food-description">Delicate rose tea with pink petals and honey</p>
+                    <p class="food-price">$4.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image tea-bg"></div>
+                    <h3 class="food-title">Chai Latte</h3>
+                    <p class="food-description">Spiced chai tea with steamed milk and cinnamon</p>
+                    <p class="food-price">$5.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image smoothie-bg"></div>
+                    <h3 class="food-title">Berry Blast Smoothie</h3>
+                    <p class="food-description">Mixed berries with yogurt and honey</p>
+                    <p class="food-price">$6.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image smoothie-bg"></div>
+                    <h3 class="food-title">Tropical Paradise</h3>
+                    <p class="food-description">Mango, pineapple, and coconut smoothie</p>
+                    <p class="food-price">$7.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Breakfast Section -->
+        <div class="menu-category">
+            <h3 class="category-title">🍳 Breakfast</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image waffle-bg"></div>
+                    <h3 class="food-title">Belgian Waffles</h3>
+                    <p class="food-description">Crispy waffles with maple syrup and fresh berries</p>
+                    <p class="food-price">$12.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image french-toast-bg"></div>
+                    <h3 class="food-title">French Toast</h3>
+                    <p class="food-description">Thick-cut bread with cinnamon and powdered sugar</p>
+                    <p class="food-price">$11.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image omelette-bg"></div>
+                    <h3 class="food-title">Veggie Omelette</h3>
+                    <p class="food-description">Fresh vegetables with cheese and herbs</p>
+                    <p class="food-price">$13.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image yogurt-bg"></div>
+                    <h3 class="food-title">Greek Yogurt Bowl</h3>
+                    <p class="food-description">Greek yogurt with honey, nuts, and fresh fruit</p>
+                    <p class="food-price">$9.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image granola-bg"></div>
+                    <h3 class="food-title">Homemade Granola</h3>
+                    <p class="food-description">Oats, nuts, and dried fruits with milk</p>
+                    <p class="food-price">$8.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lunch Section -->
+        <div class="menu-category">
+            <h3 class="category-title">🍽️ Lunch & Main Dishes</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image sandwich-bg"></div>
+                    <h3 class="food-title">Club Sandwich</h3>
+                    <p class="food-description">Triple-decker with turkey, bacon, and fresh veggies</p>
+                    <p class="food-price">$14.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image salad-bg"></div>
+                    <h3 class="food-title">Caesar Salad</h3>
+                    <p class="food-description">Fresh romaine with parmesan and croutons</p>
+                    <p class="food-price">$12.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image pasta-bg"></div>
+                    <h3 class="food-title">Pasta Carbonara</h3>
+                    <p class="food-description">Creamy pasta with bacon and parmesan cheese</p>
+                    <p class="food-price">$16.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image burger-bg"></div>
+                    <h3 class="food-title">Gourmet Burger</h3>
+                    <p class="food-description">Angus beef with cheese, lettuce, and special sauce</p>
+                    <p class="food-price">$15.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image soup-bg"></div>
+                    <h3 class="food-title">Tomato Basil Soup</h3>
+                    <p class="food-description">Creamy tomato soup with fresh basil</p>
+                    <p class="food-price">$8.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Desserts Section -->
+        <div class="menu-category">
+            <h3 class="category-title">🍰 Desserts & Pastries</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image brownie-bg"></div>
+                    <h3 class="food-title">Chocolate Brownie</h3>
+                    <p class="food-description">Rich chocolate brownie with walnuts</p>
+                    <p class="food-price">$6.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image cheesecake-bg"></div>
+                    <h3 class="food-title">New York Cheesecake</h3>
+                    <p class="food-description">Creamy cheesecake with berry compote</p>
+                    <p class="food-price">$8.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image tiramisu-bg"></div>
+                    <h3 class="food-title">Tiramisu</h3>
+                    <p class="food-description">Italian dessert with coffee and mascarpone</p>
+                    <p class="food-price">$9.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image muffin-bg"></div>
+                    <h3 class="food-title">Blueberry Muffin</h3>
+                    <p class="food-description">Fresh-baked muffin with juicy blueberries</p>
+                    <p class="food-price">$4.75</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image donut-bg"></div>
+                    <h3 class="food-title">Pink Glazed Donut</h3>
+                    <p class="food-description">Sweet donut with pink glaze and sprinkles</p>
+                    <p class="food-price">$3.99</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Snacks Section -->
+        <div class="menu-category">
+            <h3 class="category-title">🍟 Snacks & Sides</h3>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <div class="food-image chips-bg"></div>
+                    <h3 class="food-title">Truffle Fries</h3>
+                    <p class="food-description">Crispy fries with truffle oil and parmesan</p>
+                    <p class="food-price">$7.25</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+
+                <div class="menu-card">
+                    <div class="food-image nuts-bg"></div>
+                    <h3 class="food-title">Mixed Nuts</h3>
+                    <p class="food-description">Premium selection of roasted nuts</p>
+                    <p class="food-price">$5.50</p>
+                    <button class="order-btn">Add to Order</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2>About Pink Pink Coffee</h2>
+            <p>Welcome to Pink Pink Coffee, where every cup tells a story and every bite brings joy. Founded with a passion for creating memorable experiences, we believe that coffee is more than just a drink—it's a moment of comfort, connection, and celebration.</p>
+            <p>Our pink-themed café combines the warmth of traditional coffee culture with a modern, playful aesthetic. From our signature Pink Latte to our freshly baked pastries, every item on our menu is crafted with love and attention to detail.</p>
+            <p>Whether you're stopping by for a quick coffee break or settling in for a leisurely afternoon, Pink Pink Coffee is your cozy haven where great conversations happen and memories are made.</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-content">
+            <h2>Visit Us</h2>
+            <p>Come experience the magic of Pink Pink Coffee! We'd love to see you.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Address: 456 Pink Street, Coffee City, CC 12345</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>Phone: 069930714</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>Email: hello@pinkpinkcoffee.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>🕒</span>
+                    <span>Hours: Mon-Sun 7AM-9PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }));
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.15)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Add to order functionality
+        document.querySelectorAll('.order-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const foodTitle = this.parentElement.querySelector('.food-title').textContent;
+                alert(`"${foodTitle}" has been added to your order!`);
+            });
+        });
+
+        // Category card click effect
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.querySelector('h3').textContent;
+                alert(`Browsing ${category} books...`);
+            });
+        });
+
+        // Food image click functionality
+        document.querySelectorAll('.food-image').forEach(image => {
+            image.addEventListener('click', function() {
+                const imageUrl = this.style.backgroundImage.slice(5, -2);
+                window.open(imageUrl, '_blank');
+            });
+        });
+    </script>
+</body>
+</html> 
